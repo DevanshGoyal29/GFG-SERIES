@@ -1,0 +1,35 @@
+class Solution {
+    public int getSecondLargest(int[] arr) {
+        int flargest=Integer.MIN_VALUE;
+        int slargest=Integer.MIN_VALUE;
+        for(int num: arr)
+        {
+            if(num > flargest)
+            {
+                slargest=flargest;
+                flargest=num;
+            }else if (num > slargest && num!= flargest)
+            {
+                slargest=num;
+            }
+        }
+        if(slargest != Integer.MIN_VALUE)
+        {
+            return slargest;
+        }else{
+            return -1;
+        }
+    }
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n= sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+            
+        }Solution obj= new Solution();
+        System.out.println(obj.getSecondLargest(arr));
+    }
+}
